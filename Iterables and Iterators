@@ -1,0 +1,18 @@
+import math
+
+def nCr(n,r):
+    f = math.factorial
+    return f(n) / f(r) / f(n-r)
+
+N = input()
+letters = raw_input().strip().split()
+K = input()
+N_a = letters.count('a')
+if N_a == 0:
+    print '0'
+elif N - N_a < K:
+    print '1'
+else:
+    num = nCr(N - N_a, K)
+    denum = nCr(N, K)
+    print (denum - num) * 1.0 / denum
